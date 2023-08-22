@@ -1,0 +1,14 @@
+dotnet new sln --name EcommerceSolution
+mkdir src
+dotnet new classlib -o src/Core/Ecommerce.Domain
+dotnet new classlib -o src/Core/Ecommerce.Application
+dotnet new classlib -o src/Infrastructure --name Ecommerce.Infrastructure
+dotnet new webapi -o src/Api --name Ecommerce.Api
+dotnet sln add src/Infrastructure/Ecommerce.Infrastructure.csproj
+dotnet sln add src/Core/Ecommerce.Domain/Ecommerce.Domain.csproj
+dotnet sln add src/Core/Ecommerce.Application/Ecommerce.Application.csproj
+dotnet sln add src/Api/Ecommerce.Api.csproj
+dotnet add src/Infrastructure/Ecommerce.Infrastructure.csproj reference src/Core/Ecommerce.Application/Ecommerce.Application.csproj
+dotnet add src/Core/Ecommerce.Application/Ecommerce.Application.csproj reference src/Core/Ecommerce.Domain/Ecommerce.Domain.csproj
+dotnet add src/Api/Ecommerce.Api.csproj reference src/Core/Ecommerce.Application/Ecommerce.Application.csproj
+dotnet add src/Api/Ecommerce.Api.csproj reference src/Infrastructure/Ecommerce.Infrastructure.csproj
