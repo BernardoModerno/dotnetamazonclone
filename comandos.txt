@@ -12,3 +12,5 @@ dotnet add src/Infrastructure/Ecommerce.Infrastructure.csproj reference src/Core
 dotnet add src/Core/Ecommerce.Application/Ecommerce.Application.csproj reference src/Core/Ecommerce.Domain/Ecommerce.Domain.csproj
 dotnet add src/Api/Ecommerce.Api.csproj reference src/Core/Ecommerce.Application/Ecommerce.Application.csproj
 dotnet add src/Api/Ecommerce.Api.csproj reference src/Infrastructure/Ecommerce.Infrastructure.csproj
+dotnet run --project backend/src/api
+dotnet add package Microsoft.AspNetCore.Identity --version 2.2.0
